@@ -1,0 +1,23 @@
+<table>
+  <% JSON.parse(@tablero.state).each_with_index do |row, i| %>
+    <tr>
+      <% row.each_with_index do |cell, j| %>
+        <td>
+          <% unless cell.nil? %>
+            <% if cell == 0 %>
+              <%="O"%>
+            <% else %>
+              <%="X"%>
+            <% end %>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<% unless @tablero.game_end %>
+  <%= link_to "Actualizar", tablero_update_url, method: :get %>
+<% else %>
+  <%= link_to "Reiniciar", tablero_reset_url, method: :get %>
+<% end %>
