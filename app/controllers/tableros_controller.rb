@@ -2,14 +2,14 @@ class TablerosController < ApplicationController
   def show
     @tablero = Tablero.last || Tablero.create
     unless @tablero.state
-      @tablero.inicializar 
+      @tablero.start 
       @tablero.save
     end
   end
 
   def update
     @tablero = Tablero.last
-    @tablero.aplicar_reglas
+    @tablero.apply_rules
     @tablero.save
     redirect_to tablero_url(@tablero)
   end

@@ -17,7 +17,7 @@
 </table>
 
 <% unless @tablero.game_end %>
-  <%= link_to "Actualizar", tablero_update_url, method: :get %>
+  <%= link_to "Update", tablero_update_url, method: :get %>
 <% else %>
-  <%= link_to "Reiniciar", tablero_reset_url, method: :get %>
+  <%= link_to "Reset", tablero_reset_url, method: :get %>
 <% end %>
